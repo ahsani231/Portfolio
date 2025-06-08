@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="img2.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahsan's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div style="display: flex;justify-content: center;">
+    <div style="padding: 30px;max-width: 1200px;width: 100%;">
+        <div class="back">
+            <a href="index.html">Back Home</a>
+        </div>
+        <div class="heading">
+            <h1>Video Editings</h1>
+        </div>
+        <div>
+            <h3>Projects</h3>
+        </div>
+        <div>
+            <div class="yt-gallery-wrapper">
+    <div class="yt-video-thumb" data-video="https://www.youtube.com/embed/VIDEO_ID_1">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="yt-video-thumb" data-video="https://www.youtube.com/embed/VIDEO_ID_2">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="yt-video-thumb" data-video="https://www.youtube.com/embed/VIDEO_ID_3">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3?rel=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <!-- Add more videos by duplicating above divs -->
+  </div>
+
+  <!-- Lightbox Viewer -->
+  <div class="yt-lightbox" id="ytLightbox">
+    <span class="yt-lightbox-close" onclick="closeYTLightbox()">&times;</span>
+    <iframe id="ytPlayer" src="" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+  </div>
+
+  <!-- JavaScript to Handle Click Events -->
+  <script>
+    const thumbnails = document.querySelectorAll('.yt-video-thumb');
+    const lightbox = document.getElementById('ytLightbox');
+    const player = document.getElementById('ytPlayer');
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        const videoURL = thumb.getAttribute('data-video') + '?autoplay=1';
+        player.src = videoURL;
+        lightbox.style.display = 'flex';
+      });
+    });
+
+    function closeYTLightbox() {
+      lightbox.style.display = 'none';
+      player.src = ''; // Stop the video
+    }
+  </script>
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>

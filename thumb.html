@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="img2.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahsan's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div style="padding: 30px;display:  flex;justify-content: center;">
+    <div style="max-width: 1200px;width: 100%;">
+        <div class="back">
+            <a href="index.html">Back Home</a>
+        </div>
+        <div class="heading">
+            <h1>Thumbnails Designs</h1>
+        </div>
+        <div>
+            <h3>Projects</h3>
+        </div>
+        <div class="gallery">
+    <img src="thumbnails\image1.jpg" alt="Thumbnail 1">
+    <img src="thumbnails\image2.jpg" alt="Thumbnail 2">
+    <img src="thumbnails\image3.jpg" alt="Thumbnail 3">
+    <img src="thumbnails\image4.jpg" alt="Thumbnail 4">
+    <img src="thumbnails\image5.jpg" alt="Thumbnail 5">
+    <img src="thumbnails\image6.jpg" alt="Thumbnail 6">
+    <img src="thumbnails\image7.jpg" alt="Thumbnail 7">
+    <!-- Add more images -->
+  </div>
+
+  <!-- Lightbox viewer -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <span class="nav left" onclick="prevImage()">&#10094;</span>
+    <img id="lightbox-img" src="">
+    <span class="nav right" onclick="nextImage()">&#10095;</span>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll(".gallery img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        showImage();
+      });
+    });
+
+    function showImage() {
+      lightboxImg.src = images[currentIndex].src;
+      lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = "none";
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage();
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage();
+    }
+  </script>
+    </div>
+    </div>
+</body>
+</html>

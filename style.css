@@ -362,6 +362,9 @@ a{
     .projects{
       font-size: 14px;
     }
+
+
+    .web-image-card img{box-shadow:2px 2px 2px 2px black;}
     .project{
 
       margin: 0px;
@@ -419,4 +422,5 @@ a{
   }
 
 }
+
 
